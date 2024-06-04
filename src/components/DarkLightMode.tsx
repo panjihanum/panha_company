@@ -2,11 +2,11 @@
 import { useEffect, useState } from "react";
 import { MoonIcon, SunIcon } from "@heroicons/react/24/solid";
 
-interface HeaderProps {
+interface DarkLightModeProps {
   className?: string;
 }
 
-const Header: React.FC<HeaderProps> = ({ className }) => {
+const DarkLightMode: React.FC<DarkLightModeProps> = ({ className }) => {
   const [isDarkMode, setIsDarkMode] = useState(false);
 
   useEffect(() => {
@@ -59,4 +59,4 @@ const Header: React.FC<HeaderProps> = ({ className }) => {
   );
 };
 
-export default Header;
+export default DarkLightMode;

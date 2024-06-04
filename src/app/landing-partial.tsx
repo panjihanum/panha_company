@@ -1,7 +1,7 @@
 import { IMAGES } from "@/assets/images";
 import Image from "next/image";
 
-export const LandingPagePartial = () => (
+const LandingPagePartial = () => (
   <div className="min-h-screen w-full flex flex-col items-center justify-center">
     <header className="w-full max-w-6xl text-center py-8 animate__animated animate__zoomIn">
       <h1 className="text-3xl lg:text-4xl font-bold text-black dark:text-white mt-6 md:mt-0">
@@ -35,3 +35,5 @@ export const LandingPagePartial = () => (
     </section>
   </div>
 );
+
+export default LandingPagePartial;

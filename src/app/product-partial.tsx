@@ -6,7 +6,7 @@ import { ProductProps } from "@/interfaces/products.interface";
 import { useEffect, useState } from "react";
 import { useInView } from "react-intersection-observer";
 
-export const ProductPagePartial = ({
+const ProductPagePartial = ({
   products,
   images,
 }: {
@@ -137,3 +137,5 @@ const ProductDetail = ({ label, value }: { label: string; value: string }) => (
     </span>
   </div>
 );
+
+export default ProductPagePartial;

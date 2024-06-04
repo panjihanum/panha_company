@@ -1,9 +1,9 @@
 import Starfield from "@/components/Starfield";
 import { getListImages } from "@/services/image.service";
 import { getListProducts } from "@/services/product.service";
-import Header from "@/components/Header";
-import { LandingPagePartial } from "@/partials/LandingPagePartial";
-import { ProductPagePartial } from "@/partials/ProductPagePartial";
+import DarkLightMode from "@/components/DarkLightMode";
+import LandingPagePartial from "./landing-partial";
+import ProductPagePartial from "./product-partial";
 
 const HomePage = async () => {
   const products = await getListProducts();
@@ -23,7 +23,7 @@ const HomePage = async () => {
             &copy; 2024 Panha Store. Hak cipta dilindungi.
           </p>
         </footer>
-        <Header />
+        <DarkLightMode />
       </div>
     </main>
   );
