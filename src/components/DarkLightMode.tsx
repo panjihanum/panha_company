@@ -10,42 +10,34 @@ const DarkLightMode: React.FC<DarkLightModeProps> = ({ className }) => {
   const [isDarkMode, setIsDarkMode] = useState(false);
 
   useEffect(() => {
-    if (
-      localStorage.theme === "dark" ||
-      (!("theme" in localStorage) &&
-        window.matchMedia("(prefers-color-scheme: dark)").matches)
-    ) {
-      document.documentElement.classList.remove("dark");
-      localStorage.theme = "light";
-      setIsDarkMode(false);
-    } else {
+    if (window.matchMedia("(prefers-color-scheme: dark)").matches) {
       document.documentElement.classList.add("dark");
-      localStorage.theme = "dark";
       setIsDarkMode(true);
+    } else {
+      document.documentElement.classList.remove("dark");
+      setIsDarkMode(false);
     }
   }, []);
 
   const handleToggleDarkMode = () => {
     if (isDarkMode) {
       document.documentElement.classList.remove("dark");
-      localStorage.theme = "light";
       setIsDarkMode(false);
     } else {
       document.documentElement.classList.add("dark");
-      localStorage.theme = "dark";
       setIsDarkMode(true);
     }
   };
 
   return (
-    <header
-      className={`fixed top-4 right-2 bg-transparent z-1 ${className}`}
-    >
+    <header className={`fixed top-4 right-2 bg-transparent z-1 ${className}`}>
       <div className="flex justify-between items-center h-full">
         <button
           className={`bg-${isDarkMode ? "gray-700" : "white"} hover:bg-${
             isDarkMode ? "gray-800" : "gray-200"
-          } text-${isDarkMode ? "white" : "gray-900"} rounded-lg flex items-end justify-end  transition-none`}
+          } text-${
+            isDarkMode ? "white" : "gray-900"
+          } rounded-lg flex items-end justify-end  transition-none`}
           onClick={handleToggleDarkMode}
         >
           {isDarkMode ? (

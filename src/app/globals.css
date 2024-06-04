@@ -5,7 +5,7 @@
 :root {
   --foreground-rgb: 0, 0, 0;
   --background-rgb: 255, 255, 255;
-  --bubble-color: #fdfdfd;
+  --bubble-color: rgb(240 245 239 / 98%);
 }
 
 .dark {
