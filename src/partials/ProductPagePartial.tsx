@@ -60,6 +60,9 @@ export const ProductPagePartial = ({
       </div>
       <div className="flex justify-end mt-10">
         <button
+          style={{
+            opacity: page === 0 ? 0.5 : 1,
+          }}
           className="px-4 py-2 mr-2 bg-gray-200 text-gray-700 rounded hover:bg-gray-300"
           onClick={prevPage}
           disabled={page === 0}
@@ -67,6 +70,9 @@ export const ProductPagePartial = ({
           Previous
         </button>
         <button
+          style={{
+            opacity: (page + 1) * perPage >= products.length ? 0.5 : 1,
+          }}
           className="px-4 py-2 bg-gray-200 text-gray-700 rounded hover:bg-gray-300"
           onClick={nextPage}
           disabled={(page + 1) * perPage >= products.length}
@@ -126,7 +132,7 @@ const ProductDetail = ({ label, value }: { label: string; value: string }) => (
     <span className="text-black text-left dark:text-white text-sm min-w-[2px]">
       :
     </span>
-    <span className="text-black text-left text-sm w-full pl-2 break-all">
+    <span className="text-black  dark:text-white text-left text-sm w-full pl-2 break-all">
       {value}
     </span>
   </div>

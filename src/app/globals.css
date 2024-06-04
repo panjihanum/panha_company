@@ -4,16 +4,27 @@
 
 :root {
   --foreground-rgb: 0, 0, 0;
-  --background-start-rgb: 214, 219, 220;
-  --background-end-rgb: 255, 255, 255;
+  --background-rgb: 255, 255, 255;
+  --bubble-color: #fdfdfd;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --foreground-rgb: 255, 255, 255;
-    --background-start-rgb: 0, 0, 0;
-    --background-end-rgb: 0, 0, 0;
-  }
+.dark {
+  --foreground-rgb: 255, 255, 255;
+  --background-rgb: 0, 0, 0;
+  --bubble-color: #3a3a3a;
+}
+
+* {
+  -webkit-transition: background-color 1000ms ease-in-out,
+    color 1000ms ease-in-out;
+  -ms-transition: background-color 1000ms ease-in-out, color 1000ms ease-in-out;
+  transition: background-color 1000ms ease-in-out, color 1000ms ease-in-out;
+}
+
+.transition-none {
+  -webkit-transition: none !important;
+  -ms-transition: none !important;
+  transition: none !important;
 }
 
 html {
@@ -22,7 +33,6 @@ html {
 
 body {
   color: rgb(var(--foreground-rgb));
-  background: rgb(255, 255, 255);
   font-family: var(--font-poppins);
 }
 
@@ -37,20 +47,23 @@ body {
   width: 100vw;
   height: 140vh;
   z-index: 0;
+  background: rgb(var(--background-rgb));
   overflow: hidden;
   top: 0;
   left: 0;
 }
+
 .bubble {
   position: absolute;
   bottom: -100px;
   width: 40px;
   height: 40px;
-  background: #fdfdfd;
+  background: var(--bubble-color);
   border-radius: 50%;
   opacity: 0.5;
   animation: rise 10s infinite ease-in;
 }
+
 .bubble:nth-child(1) {
   width: 40px;
   height: 40px;
@@ -132,4 +145,8 @@ body {
     bottom: 1080px;
     transform: translateX(-200px);
   }
+}
+
+.animate__delay-05s {
+  animation-delay: 0.5s;
 }

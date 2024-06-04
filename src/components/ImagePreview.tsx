@@ -34,6 +34,7 @@ export const ImagePreview = ({
     setZoomed(!zoomed);
   };
 
+  const innerWidth = zoomed ? window.innerWidth * 1.2 : window.innerWidth;
   return (
     <>
       <div className="relative">
@@ -63,14 +64,10 @@ export const ImagePreview = ({
                 src={src}
                 alt={alt}
                 width={
-                  window.innerWidth <= 1024
-                    ? window.innerWidth / 1.2
-                    : window.innerWidth / 2
+                  window.innerWidth <= 1024 ? innerWidth / 1.2 : innerWidth / 2
                 }
                 height={
-                  window.innerWidth <= 1024
-                    ? window.innerWidth / 1.2
-                    : window.innerWidth / 2
+                  window.innerWidth <= 1024 ? innerWidth / 1.2 : innerWidth / 2
                 }
                 objectFit={zoomed ? "contain" : "cover"}
               />
